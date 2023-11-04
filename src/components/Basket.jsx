@@ -7,16 +7,16 @@ const Basket = () => {
   const { basket, setBasket } = useContext(BasketContext);
   console.log(basket);
   const [state, setState] = useState(1);
-  // const setIncrease = () => {
-  //   // state < 10 ? setState(state + 1) : setState(10);
-  //   setState((prevCount) => +1);
-  // };
-  // const setDecrease = () => {
-  //   // state > 1 ? setState(state - 1) : setState(1);
-  //   if (state > 1) {
-  //     setState((prevCount) => -1);
-  //   }
-  // };
+  const setIncrease = () => {
+    // state < 10 ? setState(state + 1) : setState(10);
+    setState(state +1);
+  };
+  const setDecrease = () => {
+    // state > 1 ? setState(state - 1) : setState(1);
+    if (state > 1) {
+      setState(state -1);
+    }
+  };
   const handleRemove = (id) => {
     const arr = basket.filter((item) => item.id !== id);
     setBasket(arr);
