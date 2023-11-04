@@ -17,7 +17,7 @@ const CardCarousel2 = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4,
+      items: 3,
     },
 
     tablet: {

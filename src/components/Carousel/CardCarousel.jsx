@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Box, Heading, Image,  } from "@chakra-ui/react";
+import { Box, Heading, Image,HStack, Container  } from "@chakra-ui/react";
 import logo1 from '../../assets/images/car.jpg'
 import logo2 from '../../assets/images/mebel.jpg'
 import logo3 from '../../assets/images/kitob.jpg'
@@ -17,22 +17,22 @@ const responsive = {
     items: 5
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4
+    breakpoint: { max: 3000, min: 1000 },
+    items: 3
   },
  
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1000, min: 500 },
     items: 2
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 500, min: 0 },
     items: 1
   }
 };
   return (
     // <div>CardCarousel</div>
-    <Box my={'30px'}>
+    <Container maxW={'1400px'} my={'30px'} >
     <Heading size={'lg'}fontWeight={'600px'}pb={'5'}className="hover">Категории</Heading>
    <Carousel responsive={responsive}>
   <Box>
@@ -70,7 +70,7 @@ const responsive = {
 <Heading textAlign={'center'} size={'md'}fontWeight={'600'}className="hover">машины</Heading>
   </Box>
 </Carousel>
-    </Box>
+    </Container>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Button,
@@ -15,10 +15,13 @@ import {
   CircularProgress,
 } from "@chakra-ui/react";
 import { AddShoppingCart } from "@styled-icons/material/AddShoppingCart";
+import { Searchcontext } from "../context/SearchContext";
+
 const SearchCard = () => {
+  const { store, search, setInputData } = useContext(Searchcontext);
+
   return (
-    <div>
-      {" "}
+    <Box display={"flex"} alignItems={"center"}>
       <Grid
         templateColumns={{
           base: "repeat(1,1fr)",
@@ -30,11 +33,12 @@ const SearchCard = () => {
           "2xl": "repeat(6,1fr)",
         }}
         gap={"10px"}
+  pl={'50px'}
       >
-        {state.map((item) => {
+        {store.map((item) => {
           return (
             <GridItem className="shadow" height={"fit-content"} key={item.id}>
-              <Box height={"100%"}>
+              <Box height={"100%"} >
                 <Box //onClick={() => navigate(`/product/${item.id}`)}
                 >
                   <Image
@@ -92,7 +96,7 @@ const SearchCard = () => {
           );
         })}
       </Grid>
-    </div>
+    </Box>
   );
 };
 

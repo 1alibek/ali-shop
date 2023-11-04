@@ -7,14 +7,16 @@ const Basket = () => {
   const { basket, setBasket } = useContext(BasketContext);
   console.log(basket);
   const [state, setState] = useState(1);
-  const pilus = () => {
-    setState(state + 1);
-  };
-  const minus = () => {
-    if (state > 1) {
-      setState(state - 1);
-    }
-  };
+  // const setIncrease = () => {
+  //   // state < 10 ? setState(state + 1) : setState(10);
+  //   setState((prevCount) => +1);
+  // };
+  // const setDecrease = () => {
+  //   // state > 1 ? setState(state - 1) : setState(1);
+  //   if (state > 1) {
+  //     setState((prevCount) => -1);
+  //   }
+  // };
   const handleRemove = (id) => {
     const arr = basket.filter((item) => item.id !== id);
     setBasket(arr);
@@ -26,13 +28,16 @@ const Basket = () => {
       border={"1px solid #1bc5bd"}
       borderRadius={"10px"}
     >
-          <Heading p={3} fontWeight={'600px'}>Корзина</Heading>
+      <Heading p={3} fontWeight={"600px"}>
+        Корзина
+      </Heading>
       <Box>
         {basket.length === 0 && (
-          <Heading textAlign={"center"} py={5}>Корзина пуста</Heading>
+          <Heading textAlign={"center"} py={5}>
+            Корзина пуста
+          </Heading>
         )}
         {basket.map((item, index) => (
-          
           <Box
             key={index}
             display={{ md: "block", lg: "flex", xl: "flex" }}
@@ -71,7 +76,7 @@ const Basket = () => {
                   color={"red"}
                   borderRadius={"150px"}
                   fontSize={16}
-                  onClick={() => minus()}
+                  onClick={() => setDecrease()}
                 >
                   -
                 </Button>
@@ -81,7 +86,7 @@ const Basket = () => {
                   background={"white"}
                   color={"#1bc5bd"}
                   borderRadius={"150px"}
-                  onClick={() => pilus()}
+                  onClick={() => setIncrease()}
                 >
                   +
                 </Button>

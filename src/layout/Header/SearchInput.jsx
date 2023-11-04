@@ -14,33 +14,38 @@ import {
   CircularProgress,
 } from "@chakra-ui/react";
 import { AddShoppingCart } from "@styled-icons/material/AddShoppingCart";
+import { Link } from "react-router-dom";
 
 import { SearchIcon } from "@chakra-ui/icons";
 import { sofaService } from "../../service/sofaService";
 import { BasketContext } from "../../context/BasketContext";
 import { useState, useContext } from "react";
 import axios from "axios";
-const SearchInput = () => {
-  const [inputData, setInputData] = useState("");
-  const [state, setState] = useState([]);
-  // const { setProductToStorage } = useContext(BasketContext);
-  async function getSearch() {
-    try {
-      let res = await axios.get(
-        `https://dummyjson.com/products/search?q=${inputData
-          .trim()
-          .toLowerCase()}`
-      );
-      console.log(res.data);
-      return setState(res.data.products);
-    } catch (e) {
-      console.log(e.target.value);
-    }
-  }
+import { Searchcontext } from "../../context/SearchContext";
 
-  const search = () => {
-    getSearch();
-  };
+const SearchInput = () => {
+  const { store, search, setInputData } = useContext(Searchcontext);
+
+  // const [inputData, setInputData] = useState("");
+  // const [state, setState] = useState([]);
+  // // const { setProductToStorage } = useContext(BasketContext);
+  // async function getSearch() {
+  //   try {
+  //     let res = await axios.get(
+  //       `https://dummyjson.com/products/search?q=${inputData
+  //         .trim()
+  //         .toLowerCase()}`
+  //     );
+  //     console.log(res.data);
+  //     return setState(res.data.products);
+  //   } catch (e) {
+  //     console.log(e.target.value);
+  //   }
+  // }
+
+  // const search = () => {
+  //   getSearch();
+  // };
 
   return (
     <Box display={"flex"} alignItems={"center"}>
@@ -49,6 +54,7 @@ const SearchInput = () => {
         width={"100%"}
         onChange={(e) => setInputData(e.target.value)}
       />
+      <Link to={'/search'}>
       <Button
         background={"#1bc5bd"}
         colorScheme="twitter"
@@ -62,7 +68,8 @@ const SearchInput = () => {
       >
         <SearchIcon color={"white"} />
       </Button>
-      <Grid
+        </Link>
+      {/* <Grid
         templateColumns={{
           base: "repeat(1,1fr)",
 
@@ -134,12 +141,9 @@ const SearchInput = () => {
             </GridItem>
           );
         })}
-      </Grid>
-    
+      </Grid> */}
     </Box>
-    
   );
 };
 
 export default SearchInput;
-

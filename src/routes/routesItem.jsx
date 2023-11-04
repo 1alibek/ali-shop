@@ -8,8 +8,8 @@ import Register from "../components/Register";
 import { Navigate } from "react-router-dom";
 import SearchCard from "../components/SearchCard";
 // import { LikeContext } from "../context/LikeContext";
-import LikePages from "../pages/LikePages"
-import Sahifa from '../routes/Sahifa'
+import LikePages from "../pages/LikePages";
+import Sahifa from "../routes/Sahifa";
 
 export const routesItem = [
   {
@@ -27,26 +27,28 @@ export const routesItem = [
         path: "/product/",
         element: <Navigate to={"/"} />,
       },
-     
 
+      {
+        path: "/search",
+        element: <SearchCard />,
+      },
       {
         path: "/basket",
         element: <BasketPage />,
       },
-      
-  
+
       {
         path: "/like",
-        element:<LikePages/>,
+        element: <LikePages />,
       },
       {
         path: "*",
-        element:<Sahifa/>
+        element: <Sahifa />,
       },
-      {
-        path: "/searchProduct",
-        element: <SearchCard/>,
-      },
+      // {
+      //   path: "/searchProduct",
+      //   element: <SearchCard />,
+      // },
     ],
   },
 ];
@@ -69,9 +71,3 @@ export const beforeLogin = [
     element: <Heading>saxifa topilmadi</Heading>,
   },
 ];
-
-
-
-
-
-

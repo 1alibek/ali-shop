@@ -53,11 +53,9 @@ function MainModal() {
                   <Heading size={"md"} mb={"1px"}>
                     {product.title}
                   </Heading>
-                  <Text as={"b"} >
-                    ${product.price}
-                  </Text>
+                  <Text as={"b"}>${product.price}</Text>
                 </Box>
-                <Box  pt={'5px'}>
+                <Box pt={"5px"}>
                   <Input
                     placeholder="ваше имя *
 "
@@ -80,7 +78,6 @@ function MainModal() {
               w={"100%"}
               px={"20px"}
               colorScheme="twitter"
-
               onClick={buyProduct}
             >
               купить

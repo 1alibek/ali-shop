@@ -7,17 +7,19 @@ import BasketProvider from "./context/BasketContext";
 import ModalProvider from "./context/ModalContext";
 import AuthProvider from "./context/AuthContext";
 import LikeProvider from "./context/LikeContext";
-
+import SearchContext from "./context/SearchContext"
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <ChakraProvider>
-      <ModalProvider>
-        <BasketProvider>
-          <LikeProvider>
-            <MainRoutes />
-          </LikeProvider>
-        </BasketProvider>
-      </ModalProvider>
+      <SearchContext>
+        <ModalProvider>
+          <BasketProvider>
+            <LikeProvider>
+              <MainRoutes />
+            </LikeProvider>
+          </BasketProvider>
+        </ModalProvider>
+      </SearchContext>
     </ChakraProvider>
   </AuthProvider>
 );
